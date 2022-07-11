@@ -1,3 +1,20 @@
 School Project 
 Subject = Software engineering concepts and contemporary technology
 Course = Technical and Vocational Education in Computer engineering
+Name of project : Online Repairing and Maintainance System
+
+The project will be a  multi-application project ,
+    We have three difference application;
+   i .   alpha 
+   ii .  management 
+   iii . store
+
+
+
+    i. Alpha
+        The application will be the main landing page and is a page for redirecting to both other pages
+    ii . Management
+        this is the app for the management team and will hav got all the tools for the management of team which is vendors snd organizations 
+    iii . Store
+        this appliction will have a number of staffs with are the repairemans/womens in our scope .This is the page from where user can check for repairemens and related products .
+
