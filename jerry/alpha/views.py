@@ -10,8 +10,8 @@ def contact(request):
     return HttpResponse("contact")
 def  register(request):
     return HttpResponse("register")
-def alumini(request):
-    return HttpResponse("alumini")
+def alumuni(request):
+    return HttpResponse("alumuni")
 def patners(request):
     return HttpResponse("patners")
 def help(request):

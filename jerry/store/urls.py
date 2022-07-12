@@ -3,5 +3,5 @@ from store import views
 
 urlpatterns = [
     path('',views.main,name = "main"),
-    path('/track',views.track,name="tracker")
+    path('track',views.track,name="tracker")
 ]

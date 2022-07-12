@@ -16,10 +16,8 @@ def add(request):
     return HttpResponse("add")
 def crm(request):
     return HttpResponse("crm")
-def rating(request):
-    return HttpResponse("rating")
-def rating(request):
-    return HttpResponse("rating")
+def ratings(request):
+    return HttpResponse("ratings")
 def complainBox(request):
     return HttpResponse("complainBox")
 def registrationApproval(request):
