@@ -47,6 +47,12 @@ urlpatterns = [
     path('/contact',views.contact,name = "Contact")$$
 ]
 
+//store
+urlpatterns = [
+    path('',views.main,name = "main"),
+    path('/track',views.track,name="tracker")
+]
+
 
 
 
