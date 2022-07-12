@@ -5,9 +5,9 @@ Name of project : Online Repairing and Maintainance System
 
 The project will be a  multi-application project ,
     We have three difference application;
-   i .   alpha 
-   ii .  management 
-   iii . store
+   i .   alpha               /alpha or /        **Urls path**
+   ii .  management         / maana
+   iii . store              /store
 
 
 
