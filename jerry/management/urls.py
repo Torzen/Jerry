@@ -1,6 +1,6 @@
 from django.urls import path
-from management import views
-
+from . import views
+    
 
 urlpatterns = [
     path('',views.main ,name=''),
@@ -14,5 +14,10 @@ urlpatterns = [
     path('complainBox',views.complainBox,name = 'complainBox'),
     path('registrationApproval',views.registrationApproval ,name='registrationApproval'),
     path('feedbacks',views.feedbacks,name = "feedbacks"),
-    path('contact',views.contact,name = "Contact")
+    path('contact',views.contact,name = "Contact"),
+    path('datasets',views.datasets,name = "Dataset page"),
+    path('tools',views.tools,name ="Tools page" ),
+    path('services',views.services,name ="services page" ),
+    path('reports',views.reports,name ="reports page" ),
+    path('login',views.login,name="Login page") 
 ]
