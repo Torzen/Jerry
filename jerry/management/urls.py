@@ -19,5 +19,6 @@ urlpatterns = [
     path('tools',views.tools,name ="Tools page" ),
     path('services',views.services,name ="services page" ),
     path('reports',views.reports,name ="reports page" ),
-    path('login',views.login,name="Login page") 
+    path('login',views.login,name="Login page") ,
+    path('forgetPassword',views.forgetPassword,name = "Forget password")
 ]
