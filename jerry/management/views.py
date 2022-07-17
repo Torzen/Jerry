@@ -6,7 +6,7 @@ from django.contrib import messages
 # Create your views here.
 def main(request):
     if userAuthenticated ==True:
-        return HttpResponse('You are authentiated ')
+        return 
     # return render(request,'managementMain.html')
     else:
         return HttpResponse('you arent authenticated')
