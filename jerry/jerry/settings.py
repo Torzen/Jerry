@@ -58,7 +58,7 @@ ROOT_URLCONF = 'jerry.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'management/templates',BASE_DIR / "store/templates",BASE_DIR / "alpha/templates"],
+        'DIRS': [BASE_DIR / 'management/templates',BASE_DIR / "store/templates",BASE_DIR / "alpha/templates",BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
