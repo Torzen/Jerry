@@ -1,13 +1,13 @@
 from alpha import views
 from django.urls import path
 
-parentUrl = "services"
+parentUrl = ""
 urlpatterns = [
 
-    # path(f'{parentUrl}',views.main,name='Main page'),
+    path(f'{parentUrl}',views.main,name='Main page'),
     # path(f'{parentUrl}/about',views.about , name="About page"),
-    # path(f'{parentUrl}/contact',views.contact,name='contact page'),
-    # path(f'{parentUrl}/register',views.register,name='Staff registration'),
+    path(f'{parentUrl}contact',views.contact,name='contact page'),
+    path(f'{parentUrl}register',views.register,name='Staff registration'),
     # path(f'{parentUrl}/patners',views.patners ,name="patner page"),
     # path(f'{parentUrl}/alumuni',views.alumuni,name="Alumini page"),
     # path(f'{parentUrl}/help',views.help , name = "help page"),

@@ -12,4 +12,3 @@ class staffs_detail(models.Model):
     number = models.CharField(max_length=10)
     nationality = models.CharField(max_length = 100)
     photoUrl = models.CharField(max_length = 500)
-

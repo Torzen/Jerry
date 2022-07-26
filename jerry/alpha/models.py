@@ -10,3 +10,4 @@ class staffRegistration(models.Model):
     number = models.CharField(max_length=10)
     nationality = models.CharField(max_length = 100)
     photoUrl = models.CharField(max_length = 500)
+    allocateduId = models.IntegerField(null=True)
