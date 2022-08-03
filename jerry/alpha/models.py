@@ -9,5 +9,6 @@ class staffRegistration(models.Model):
     address = models.CharField(max_length=200)
     number = models.CharField(max_length=10)
     nationality = models.CharField(max_length = 100)
-    photoUrl = models.CharField(max_length = 500)
+    image = models.ImageField(upload_to = ' ')
+    photoUrl = models.CharField(null=True)
     allocateduId = models.IntegerField(null=True)

@@ -1,0 +1,40 @@
+{% extends 'managementBase.html' %}
+
+{% block main %}
+
+
+    
+    <div class=" ">
+        <div class=" text-red-700 flex grid-cols-6 text-center">
+            <div>Id</div>
+            <div>Username</div>
+            <div>Name</div>
+            <div>Number</div>
+            <div><button class="sucess">Approve</button></div>
+            <div><button class="">See-more</button></div>
+        </div>
+        
+        <br>
+        {% for request in requests %}
+        <div class="flex px-3 text-gray-600  auto-cols-auto text-center">
+            <div>{{request.id}}</div>
+            <div>{{request.username}}</div>
+            <div>{{request.fullname}}</div>
+            <div>{{request.email}}</div>
+            <div>{{request.address}}</div>
+            <div>{{request.nationality}}</div>
+            <div><a href=https://{{request.photoUrl}}>Click_Here</a></div>
+            <div><button class="">Approve</button></div>
+            <div><button class="">See-more</button></div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+    
+
+   
+
+
+
+{% endblock main %}
+
