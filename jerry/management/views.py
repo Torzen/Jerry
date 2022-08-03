@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate 
 from django.contrib import messages
 
-
+from alpha.models import staffRegistration
 
 # Create your views here.
 def main(request,userAuthenticated = True):
@@ -16,7 +16,13 @@ def add(request):
 def complainBox(request):
     return render(request , 'tools.html')
 def registrationApproval(request):
-    return HttpResponse("registrationApproval")
+    registrationRequests = staffRegistration.objects.all()
+    data = {'requests':registrationRequests}
+    print(type(registrationRequests))
+
+   
+
+    return render(request,'services/registrationApproval.html',data)
 def contact(request):
     return render(request,'services/contact.html')
 def tools(request):

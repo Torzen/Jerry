@@ -13,9 +13,8 @@
 <body>
     {% comment %} {% include 'mgmtNavbar.html' %} {% endcomment %}
     {% load static %}
-{% include 'mgmtNavbar.html' %}
-    
-    {% block main %}{% endblock main %}
-    {% include 'footer.html' %}
+    {% include 'components/managementNavbar.html' %}
+    {% block main %}{% endblock main %}  
+    {% include 'components/managementFooter.html' %}
 </body>
 </html>

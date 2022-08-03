@@ -136,3 +136,4 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 Jerry/jerry/jerry/__pycache__/*.*.pyc
+.developmentProcedure
