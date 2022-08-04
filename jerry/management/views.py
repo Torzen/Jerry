@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 
 from alpha.models import staffRegistration
+from management.models import staffs,staffs_detail
 
 # Create your views here.
 def main(request,userAuthenticated = True):
@@ -18,10 +19,6 @@ def complainBox(request):
 def registrationApproval(request):
     registrationRequests = staffRegistration.objects.all()
     data = {'requests':registrationRequests}
-    print(type(registrationRequests))
-
-   
-
     return render(request,'services/registrationApproval.html',data)
 def contact(request):
     return render(request,'services/contact.html')
@@ -42,22 +39,10 @@ def login(request):
         return render(request , 'login.html')
 
     else:
-        # print('failed authentication')
-
         return render(request , 'login.html')
-
-
 
 def forgetPassword(request):
     return render(request,'forgetPassword.html')
-
-
-
-
-
-
-
-
 
 def isUserAuthenticated(username,password):
         user = authenticate(username = username, password = password)
@@ -85,3 +70,21 @@ def isUserAuthenticated(username,password):
 #     return render(request,'services.html')
 # def feedbacks(request):
 #     return HttpResponse("feedbacks")
+
+
+def approve(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        reg_data = staffRegistration.objects.filter(id = id)
+        for i in reg_data:
+            print(i)
+            stf = staffs(username = i.username , password = i.password)
+            stf_dtl = staffs_detail(fullname = i.fullname , email = i.email , address = i.email , 
+                number = i.number , nationality = i.nationality , photoUrl = i.photoUrl)
+            stf.save()
+            stf_dtl.save()
+            print(stf)
+            print(stf_dtl)
+        staffRegistration.objects.filter(id = id).delete()      
+        return HttpResponse("Approved  \n <a href='http://localhost:8000/management/registrationApproval'> Go back </a>")
+    return HttpResponse('not approved')

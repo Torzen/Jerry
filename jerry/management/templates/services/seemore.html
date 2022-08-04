@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>see See-more
+        <h1>
+
+            <div class="name">
+                <label for="name">name</label>
+                <div>{{fullname}}</div>
+            </div>
+            <br>
+            <br> <div class="">
+                <label for="username">username</label>
+                <div>
+                    {{username}}
+                </div>
+            </div>
+            <div class="">
+                <label for="email">email</label>
+                <div>email</div>
+            </div>
+            <br> <div class="">
+                <label for="number">number</label>
+                <div>{{number}</div>
+            </div>
+            <br> <div class="">
+                <label for="address">address</label>
+                <div>{{address}}</div>
+            </div>
+            
+            <br> <div class="">
+                <label for="nationality">nationality</label>
+                <div>{{nationality}}</div>
+            </div>
+            <br> <div class="">
+                <label for="">photoUrl</label>
+                <div><a href=https://{{photoUrl}}></a></div>
+            </div>
+            
+            </div> <div class="">
+                <label for=""></label>
+                <div></div>
+
+            </div>
+            <form action="http://localhost:8000/management/approve" method="post"> {% csrf_token %}<input type="number" name="id" value={{request.id}}><button class="" type="submit">Approve</button> </form>
+
+            <br>
+            <br>
+
+
+</body>
+</html>

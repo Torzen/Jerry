@@ -45,3 +45,9 @@ def plans(request):
     return HttpResponse("plans")
 def team(request):
     return HttpResponse("team")
+def approve(request):
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        staff_detail_record = staffRegistration.objects.get().filter(id = id)
+        for i in staff_detail_record:
+            print(i)
