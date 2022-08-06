@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <h1>see See-more
-        <h1>
-
-            <div class="name">
-                <label for="name">name</label>
-                <div>{{fullname}}</div>
-            </div>
-            <br>
-            <br> <div class="">
-                <label for="username">username</label>
-                <div>
-                    {{username}}
-                </div>
-            </div>
-            <div class="">
-                <label for="email">email</label>
-                <div>email</div>
-            </div>
-            <br> <div class="">
-                <label for="number">number</label>
-                <div>{{number}</div>
-            </div>
-            <br> <div class="">
-                <label for="address">address</label>
-                <div>{{address}}</div>
-            </div>
-            
-            <br> <div class="">
-                <label for="nationality">nationality</label>
-                <div>{{nationality}}</div>
-            </div>
-            <br> <div class="">
-                <label for="">photoUrl</label>
-                <div><a href=https://{{photoUrl}}></a></div>
-            </div>
-            
-            </div> <div class="">
-                <label for=""></label>
-                <div></div>
-
-            </div>
-            <form action="http://localhost:8000/management/approve" method="post"> {% csrf_token %}<input type="number" name="id" value={{request.id}}><button class="" type="submit">Approve</button> </form>
-
-            <br>
-            <br>
 
 
+    <nav class="bg-green-500 text-center font-medium shadow-md shadow-gray-500 mb-10 align-middle text-blue-500"
+        style="height: 10vh;">
+        <div class="align-middle text-3xl">Registration Detail</div>
+    </nav>
+    <ul class="font-mono font-medium mx-4">
+        <li>
+            Name:
+            {{dataRecord.fullname}}
+        </li>
+
+        <li>
+            Username
+
+            {{dataRecord.username}}
+
+
+        </li>
+        <li>
+            Email:{{dataRecord.email}}
+
+        </li>
+        <li>Number:{{dataRecord.number}}
+        </li>
+        <li> Address:{{dataRecord.address}}
+        </li>
+        <li> Nationality: {{dataRecord.nationality}}
+        </li>
+        <li>Photo-url:<a href=https://{{dataRecord.photoUrl}}>Click_here</a>
+        </li>
+        <li>
+            <form action="http://localhost:8000/management/approve" method="post"> {% csrf_token %}<button
+                    class="px-3 py-1 rounded-lg bg-green-500 text-white hover:bg-green-600 border-2 hover:border-gray-100"
+                    type="submit" name="id" value={{dataRecord.id}}>Approve</button> </form><br>
+            <form action="http://localhost:8000/management/registration/disapprove" method="post"> {% csrf_token %} <input type="text" name="message" id="" class="bg-gray-300 border-2 border-green-500"><button
+                    class="px-3 py-1 rounded-lg bg-green-500 text-white hover:bg-green-600 border-2 hover:border-gray-100"
+                    type="submit" name="id" value={{dataRecord.id}}>Dis-Approve</button></form>
+        </li>
+    </ul>
 </body>
+
 </html>

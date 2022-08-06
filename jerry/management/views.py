@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate 
 from django.contrib import messages
+from utilities.mailSystem import Mymail
 
 from alpha.models import staffRegistration
 from management.models import staffs,staffs_detail
@@ -88,3 +89,41 @@ def approve(request):
         staffRegistration.objects.filter(id = id).delete()      
         return HttpResponse("Approved  \n <a href='http://localhost:8000/management/registrationApproval'> Go back </a>")
     return HttpResponse('not approved')
+
+
+def seemore(request):                                                   #op[1] mean 
+    if request.method == 'GET':
+        id = request.GET.get('id')
+        data = staffRegistration.objects.filter(id = id)
+        
+        for i  in data:
+            dataRecord = i
+            break
+        data = {
+            'dataRecord':dataRecord
+        }
+        return render(request,'services/seemore.html',data)
+    else:
+        return HttpResponse('Not a contexed request')
+
+    
+def disapprove(request):
+    if request.method == 'POST':                    
+        id = request.POST.get('id')                                   # key of record to be dissaproved
+        message = request.POST.get('message')                        #getting message of dissaproval
+        records = staffRegistration.objects.filter(id = id)
+        print(id , message)
+        print(records)
+        for i in records:                                             #extracting list from list of list
+            rec = i
+        print(rec)
+        mailAddr = rec.email
+        records.delete()                                            #deleting the record after been disapproved
+        Mymail.disappoval_message(mailAddr , id ,message)              #sasta bantai mail sytem
+        print(f'the registration of id:{id} is disapproved')
+        return HttpResponse('Registration request disapproved')
+    else:
+        return 'Forbidden request'
+
+
+    

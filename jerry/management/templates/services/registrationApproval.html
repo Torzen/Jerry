@@ -15,7 +15,7 @@
     </div>
 
     <br>
-    <form action="http://localhost:8000/management/approve" method="post">
+    
         {% csrf_token %}
     {% for request in requests %}
     <div class="flex px-3 text-gray-600  auto-cols-auto text-center">
@@ -26,10 +26,11 @@
         <div>{{request.address}}</div>
         <div>{{request.nationality}}</div>
         <div><a href=https://{{request.photoUrl}}>Img_here</a></div>
-        <button type="submit" name="id" value={{request.id}}>Approve</button>
+        <form action="http://localhost:8000/management/approve" method="post">{% csrf_token %}<button type="submit" name="id" value={{request.id}} class="bg-green-500 px-3 py-1 rounded-md hover:bg-green-600 hover:border-2 hover:border-gray-50 font-semibold">Approve</button></form>
+        <form action="http://localhost:8000/management/registration/seemore" method="get">{% csrf_token %}<button type='submit' class="btn rounded-lg px-3 py-1 bg-blue-500" type="button" name="id" value={{request.id}}>See-more</button></a></form>
     </div>
     <br>
     {% endfor %}
-    </form>
+
 </div>
 {% endblock main %}

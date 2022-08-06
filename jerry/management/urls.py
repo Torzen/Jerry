@@ -21,5 +21,10 @@ urlpatterns = [
     path(f'{parentUrl}/reports',views.reports,name ="reports page" ),
     path(f'{parentUrl}/',views.login,name="Login page") ,
     # path(f'{parentUrl}/forgetPassword',views.forgetPassword,name = "Forget password")
-    path(f'{parentUrl}/approve',views.approve,name='aproval page')
+    path(f'{parentUrl}/approve',views.approve,name='aproval page'),
+    path(f'{parentUrl}/registration/disapprove',views.disapprove,name='disaproval page'),
+    path(f'{parentUrl}/registration/seemore',views.seemore,name="See more")
+
+
 ]
+    
