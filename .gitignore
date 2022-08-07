@@ -137,3 +137,4 @@ GitHub.sublime-settings
 .history
 Jerry/jerry/jerry/__pycache__/*.*.pyc
 .developmentProcedure
+jerry/utilities/mailkey.py
