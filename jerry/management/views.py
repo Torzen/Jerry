@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate 
 from django.contrib import messages
-# from utilities.mailSystem import Mymail
+from utilities import mailSystem
 
 from alpha.models import staffRegistration
 from management.models import staffs,staffs_detail
@@ -78,16 +78,16 @@ def approve(request):
         id = request.POST.get('id')
         reg_data = staffRegistration.objects.filter(id = id)
         for i in reg_data:
-            print(i)
             stf = staffs(username = i.username , password = i.password)
             stf_dtl = staffs_detail(fullname = i.fullname , email = i.email , address = i.email , 
                 number = i.number , nationality = i.nationality , photoUrl = i.photoUrl)
             stf.save()
             stf_dtl.save()
-            print(stf)
-            print(stf_dtl)
+            mailSystem.message(i.email , 'approval' , message='Sucessful' )
+            print(f'email : {i.email} , message : Sucessful')
         staffRegistration.objects.filter(id = id).delete()      
         return HttpResponse("Approved  \n <a href='http://localhost:8000/management/registrationApproval'> Go back </a>")
+
     return HttpResponse('not approved')
 
 
@@ -112,12 +112,13 @@ def disapprove(request):
         id = request.POST.get('id')                                   # key of record to be dissaproved
         message = request.POST.get('message')                        #getting message of dissaproval
         data_of_disapproval = staffRegistration.objects.filter(id = id)
+        for j in data_of_disapproval:
+            addr = j.email
+            mailSystem.message(addr , 'disapproval' , message=message)
+        data_of_disapproval.delete()
         print(id , message)
         print(data_of_disapproval)
         print(f'the registration of id:{id} is disapproved')
         return HttpResponse('Registration request disapproved')
     else:
         return 'Forbidden request'
-# Mymail.disapp/oval_message()
-
-    
