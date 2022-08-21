@@ -37,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
-    'management',
     'alpha'
-
 ]
 
 MIDDLEWARE = [
@@ -123,8 +120,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "alpha/static",
-    BASE_DIR / "store/static",
-    BASE_DIR / "management/static"
+    # BASE_DIR / "store/static",
+    # BASE_DIR / "management/static"
     # '/var/www/static/',
 ]
 
