@@ -3,6 +3,6 @@ from django.urls import path
 from alpha import views
 
 urlpatterns = [
-    path('',views.landingPage,name='Landing page'),
-    path('signup',views.signup , name='SignUp page')
+    path('',views.main,name='Landing page'),
+    path('user-signup',views.user_signup , name='SignUp page')
 ]
