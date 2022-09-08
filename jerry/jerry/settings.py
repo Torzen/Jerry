@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-95q^w*q&7@@voo8ky7ic2!q@q22cuylrk@%lf-bbo*y#yz-odk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+# ALLOWED_HOSTS = ['http://cloudy565.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -37,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store',
-    'management',
     'alpha'
-
 ]
 
 MIDDLEWARE = [
@@ -123,8 +120,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "alpha/static",
-    BASE_DIR / "store/static",
-    BASE_DIR / "management/static"
+    # BASE_DIR / "store/static",
+    # BASE_DIR / "management/static"
     # '/var/www/static/',
 ]
 

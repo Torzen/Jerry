@@ -1,4 +1,4 @@
 from django.contrib import admin
-from alpha.models import staffRegistration
+from alpha.model import userRegistrations
 # Register your models here.
-admin.site.register(staffRegistration)
+admin.site.register(userRegistrations)
