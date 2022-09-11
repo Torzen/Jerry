@@ -138,3 +138,8 @@ GitHub.sublime-settings
 Jerry/jerry/jerry/__pycache__/*.*.pyc
 .developmentProcedure
 jerry/utilities/mailkey.py
+jerry/static/img/*.jpg 
+jerry/static/img/*.jpeg
+jerry/static/img/*.png
+jerry/static/img/*.lnk
+jerry/static/img/*.jpg
