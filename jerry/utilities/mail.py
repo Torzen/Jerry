@@ -1,4 +1,4 @@
-import mailkey
+from utilities import  mailkey
 from mailjet_rest import Client
 class mailTemplate:
         headings = {
@@ -49,11 +49,12 @@ class Mail(mailTemplate):
         }
         mailjet = Client(auth=(mailkey.api_key , mailkey.api_secret), version='v3.1')
         result = mailjet.send.create(data=data)
+        print(result.status_code)
         return result.status_code
 
 
     def userRegistration(self):
-        result = self.message(self.recieverAddr ,"User Regisstration Code",super().userRegistration(self.msg))
+        result = self.message(self.recieverAddr ,"User Registration Code",super().userRegistration(self.msg))
         if result == 200:
             return "sucess"
         else:
@@ -64,6 +65,6 @@ class Mail(mailTemplate):
 
 
 if __name__ == "__main__":
-    a = Mail("anjalishahjhau12345@gmail.com","hello","Good day")
+    a = Mail("anjalishahjhau12345@gmail.com","hello","I am working fine")
     print(a.userRegistration())
     
