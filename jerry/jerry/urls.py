@@ -19,7 +19,9 @@ from django.urls import path,include
 # from jerry import store, alpha , management
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('alpha.urls'))
+    path('',include('alpha.urls')),
+    path('store',include('store.urls')),
+
     
 ]
 
