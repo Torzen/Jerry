@@ -136,8 +136,8 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 Jerry/jerry/jerry/__pycache__/*.*.pyc
-jerry/static/img/*.jpg 
-jerry/static/img/*.jpeg
-jerry/static/img/*.png
-jerry/static/img/*.lnk
-jerry/static/img/*.jpg
+# jerry/static/img/*.jpg 
+# jerry/static/img/*.jpeg
+# jerry/static/img/*.png
+# jerry/static/img/*.lnk
+# jerry/static/img/*.jpg
