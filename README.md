@@ -11,3 +11,6 @@ api_secret = {Your secreat here}
 
 
 }
+
+
+ii.Download a save img folder from link:https://drive.google.com/drive/folders/1L7l-6b1laAaEa3CUVzZz6Pi-qmEdQ-hF?usp=sharing to static/ location

@@ -1,23 +1,13 @@
-import hashlib
-import mailkey
-import randoms
-class Mail:
-
-
-    api_key = mailkey.api_key
-    api_secreat = mailkey.api_secret
-    rndom = randoms()
-
-
-
-    class mailTemplate:
+from utilities import  mailkey
+from mailjet_rest import Client
+class mailTemplate:
         headings = {
             "hello" : "Hello",
-            'userRegistration' : "Your registration Code"
+            'userRegistration' : "Your registration Code",
         }
 
         def userRegistration(self,message):
-            self.msg = f'''{__class__.headings['userResgistration']}\n\t{message}           
+            self.msg = f'''{__class__.headings['userRegistration']}\n\t{message}           
             '''
             return self.msg             
             
@@ -26,14 +16,55 @@ class Mail:
             '''
             return self.msg
 
+
+class Mail(mailTemplate):
+
+
+    api_key = mailkey.api_key
+    api_secreat = mailkey.api_secret
+
     def __init__(self , recieverAddr , type , message):
         self.recieverAddr = recieverAddr
         self.messageType = type
-        self.message = message
+        self.msg = message
+
+    def message(self , reciever,subject,message):
+        data = {
+        'Messages': [
+            {
+            "From": {
+                "Email": mailkey.senderAddr,
+                "Name": 'WE-Fix-It Mail Support'
+            },
+            "To": [
+                {
+                "Email": reciever,
+                "Name": 'You'
+                }
+            ],
+            "Subject":subject,
+            "TextPart":message,
+            }
+        ]
+        }
+        mailjet = Client(auth=(mailkey.api_key , mailkey.api_secret), version='v3.1')
+        result = mailjet.send.create(data=data)
+        print(result.status_code)
+        return result.status_code
+
 
     def userRegistration(self):
-        self.registrationApprovalcode = randoms.userApprovalRandom()
+        result = self.message(self.recieverAddr ,"User Registration Code",super().userRegistration(self.msg))
+        if result == 200:
+            return "sucess"
+        else:
+            return "Error"
 
-        
     def userLogin(self):
         pass
+
+
+if __name__ == "__main__":
+    a = Mail("anjalishahjhau12345@gmail.com","hello","I am working fine")
+    print(a.userRegistration())
+    
